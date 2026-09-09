@@ -23,7 +23,7 @@ export async function GET() {
         ORDER BY id DESC
         LIMIT 1
       `),
-      getServiceStatus(),
+      getServiceStatus().catch(() => "unknown" as const),
     ]);
 
     const stats = statsRes.rows[0];
